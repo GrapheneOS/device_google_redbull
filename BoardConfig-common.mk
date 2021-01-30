@@ -27,12 +27,14 @@ TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := cortex-a76
 
+ifeq (,$(filter %_64,$(TARGET_PRODUCT)))
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
+endif
 
 BUILD_BROKEN_DUP_RULES := true
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on
@@ -523,6 +525,9 @@ ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kasan, $(TARGET_PRODUCT)))
     KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/kasan
 else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_memory, $(TARGET_PRODUCT)))
     KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/debug_memory
+else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_memory_accounting, $(TARGET_PRODUCT)))
+    KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/debug_memory_accounting
+BOARD_KERNEL_CMDLINE += page_owner=on
 else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_locking, $(TARGET_PRODUCT)))
     KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/debug_locking
 else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_hang, $(TARGET_PRODUCT)))
