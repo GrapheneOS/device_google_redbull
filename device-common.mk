@@ -1016,5 +1016,7 @@ include hardware/google/pixel/citadel/citadel.mk
 # Pixel Logger
 include hardware/google/pixel/PixelLogger/PixelLogger.mk
 
+ifneq ($(wildcard vendor/),)
 -include $(LOCAL_PATH)/redbull_allowlist.mk
+endif
 #################################################################################
