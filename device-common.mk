@@ -965,6 +965,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     zygote.critical_window.minute=10
 
+# Include the redbull product FCM
+# (TODO: b/169535506) This includes the FCM for system_ext and product partition.
+PRODUCT_PACKAGES += redbull_product_compatibility_matrix.xml
+
 #################################################################################
 # This is the End of device-common.mk file.
 # Now, Pickup other split device-common.mk files:
