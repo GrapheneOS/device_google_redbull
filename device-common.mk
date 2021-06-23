@@ -22,6 +22,11 @@ LOCAL_PATH := device/google/redbull
 PRODUCT_VENDOR_MOVE_ENABLED := true
 TARGET_BOARD_PLATFORM := lito
 
+# Make redbull source tree readonly
+# RW Allowlist necessary for a C header file created at runtime
+BUILD_BROKEN_SRC_DIR_IS_WRITABLE := false
+BUILD_BROKEN_SRC_DIR_RW_ALLOWLIST := $(abspath vendor/qcom/sm7250/proprietary)
+
 PRODUCT_SOONG_NAMESPACES += \
     hardware/google/av \
     hardware/google/camera \
