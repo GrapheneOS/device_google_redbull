@@ -22,6 +22,11 @@ LOCAL_PATH := device/google/redbull
 PRODUCT_VENDOR_MOVE_ENABLED := true
 TARGET_BOARD_PLATFORM := lito
 
+# Make redbull source tree readonly
+# RW Allowlist necessary for a C header file created at runtime
+BUILD_BROKEN_SRC_DIR_IS_WRITABLE := false
+BUILD_BROKEN_SRC_DIR_RW_ALLOWLIST := $(abspath vendor/qcom/sm7250/proprietary)
+
 PRODUCT_SOONG_NAMESPACES += \
     hardware/google/av \
     hardware/google/camera \
@@ -827,6 +832,8 @@ PRODUCT_PACKAGES += $(QTI_TELEPHONY_UTILS)
 
 HIDL_WRAPPER := qti-telephony-hidl-wrapper
 HIDL_WRAPPER += qti_telephony_hidl_wrapper.xml
+HIDL_WRAPPER += qti-telephony-hidl-wrapper-prd
+HIDL_WRAPPER += qti_telephony_hidl_wrapper_prd.xml
 PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
