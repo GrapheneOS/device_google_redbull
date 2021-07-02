@@ -22,13 +22,6 @@ LOCAL_PATH := device/google/redbull
 PRODUCT_VENDOR_MOVE_ENABLED := true
 TARGET_BOARD_PLATFORM := lito
 
-# Make redbull source tree readonly
-# RW Allowlist necessary for a C header file created at runtime
-BUILD_BROKEN_SRC_DIR_IS_WRITABLE := false
-ifneq ($(wildcard vendor/qcom/sm7250/proprietary),)
-BUILD_BROKEN_SRC_DIR_RW_ALLOWLIST := $(abspath vendor/qcom/sm7250/proprietary)
-endif
-
 PRODUCT_SOONG_NAMESPACES += \
     hardware/google/av \
     hardware/google/camera \
@@ -841,7 +834,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 # Increment the SVN for any official public releases
 ifeq ($(PRODUCT_DEVICE_SVN_OVERRIDE),)
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=29
+	ro.vendor.build.svn=30
 endif
 
 # Enable iwlan service logging for debug
