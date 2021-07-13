@@ -1009,4 +1009,7 @@ include hardware/google/pixel/common/pixel-common-device.mk
 
 # Pixel Logger
 include hardware/google/pixel/PixelLogger/PixelLogger.mk
+
+# Citadel
+include hardware/google/pixel/citadel/citadel.mk
 #################################################################################
