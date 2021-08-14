@@ -28,7 +28,7 @@ using android::hardware::google::pixel::DropDetect;
 using android::hardware::google::pixel::SysfsCollector;
 using android::hardware::google::pixel::UeventListener;
 
-#define UFSHC_PATH(filename) "/sys/devices/platform/soc/1d84000.ufshc/" #filename
+#define UFSHC_PATH(filename) "/dev/sys/block/bootdevice/" #filename
 const struct SysfsCollector::SysfsPaths sysfs_paths = {
     .SlowioReadCntPath = UFSHC_PATH(slowio_read_cnt),
     .SlowioWriteCntPath = UFSHC_PATH(slowio_write_cnt),
@@ -42,12 +42,13 @@ const struct SysfsCollector::SysfsPaths sysfs_paths = {
     .UFSLifetimeA = UFSHC_PATH(health_descriptor/life_time_estimation_a),
     .UFSLifetimeB = UFSHC_PATH(health_descriptor/life_time_estimation_b),
     .UFSLifetimeC = UFSHC_PATH(health_descriptor/life_time_estimation_c),
+    .UFSHostResetPath = UFSHC_PATH(err_stats/err_host_reset),
     .F2fsStatsPath = "/sys/fs/f2fs/",
     .EEPROMPath = "/dev/battery_history"
 };
-
-const char *const kAudioUevent = "/kernel/q6audio/q6voice_uevent";
-const char *const kSSOCDetailsPath = "/sys/class/power_supply/battery/ssoc_details";
+const struct UeventListener::UeventPaths ueventPaths = {
+    .AudioUevent = "/kernel/q6audio/q6voice_uevent",
+    .WirelessChargerPtmcUevent = "POWER_SUPPLY_PTMC_ID="};
 
 int main() {
     LOG(INFO) << "starting PixelStats";
@@ -59,7 +60,7 @@ int main() {
         return 1;
     }
 
-    UeventListener ueventListener(kAudioUevent, kSSOCDetailsPath);
+    UeventListener ueventListener(ueventPaths);
     std::thread listenThread(&UeventListener::ListenForever, &ueventListener);
     listenThread.detach();
 

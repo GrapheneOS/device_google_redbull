@@ -1,5 +1,5 @@
-<compatibility-matrix version="1.0" type="framework">
-   <hal format="hidl" optional="true">
+<compatibility-matrix version="1.0" type="framework" level="5">
+   <hal format="hidl" optional="false">
        <name>com.qualcomm.qti.imscmservice</name>
        <version>2.2</version>
        <interface>
@@ -7,36 +7,33 @@
          <instance>qti.ims.connectionmanagerservice</instance>
        </interface>
    </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>com.qualcomm.qti.uceservice</name>
-        <version>2.2</version>
+        <version>2.3</version>
         <interface>
             <name>IUceService</name>
             <instance>com.qualcomm.qti.uceservice</instance>
         </interface>
     </hal>
-    <hal format="hidl">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.ims.factory</name>
-        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IImsFactory</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.data.factory</name>
-        <transport>hwbinder</transport>
-        <version>2.1</version>
+        <version>2.2</version>
         <interface>
             <name>IFactory</name>
             <instance>default</instance>
         </interface>
     </hal>
     <!-- iwlan -->
-    <hal format="hidl">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.data.iwlan</name>
-        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IIWlan</name>
@@ -44,7 +41,7 @@
             <instance>slot2</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>android.hardware.media.c2</name>
         <version>1.0</version>
         <interface>
@@ -52,22 +49,16 @@
             <instance>default</instance>
             <instance>software</instance>
         </interface>
-        <interface>
-            <name>IConfigurable</name>
-            <instance>default</instance>
-            <instance>software</instance>
-        </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>android.hardware.radio</name>
-        <transport>hwbinder</transport>
         <version>1.2</version>
         <interface>
             <name>ISap</name>
             <instance>slot2</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>android.hardware.radio.config</name>
         <version>1.1</version>
         <interface>
@@ -75,7 +66,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.display.color</name>
         <version>1.0-5</version>
         <interface>
@@ -83,7 +74,7 @@
              <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.display.config</name>
         <version>2.0</version>
         <interface>
@@ -91,7 +82,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.display.postproc</name>
         <version>1.0</version>
         <interface>
@@ -99,7 +90,7 @@
              <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.google.google_battery</name>
         <version>1.1</version>
         <interface>
@@ -107,15 +98,15 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.google.radioext</name>
-        <version>1.2</version>
+        <version>1.2-3</version>
         <interface>
             <name>IRadioExt</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.radio.am</name>
         <version>1.0</version>
         <interface>
@@ -124,15 +115,7 @@
             <instance>slot2</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.qti.hardware.radio.atcmdfwd</name>
-        <version>1.0</version>
-        <interface>
-            <name>IAtCmdFwd</name>
-            <instance>AtCmdFwdService</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.radio.ims</name>
         <version>1.6</version>
         <interface>
@@ -141,7 +124,7 @@
             <instance>imsradio1</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.radio.lpa</name>
         <version>1.0</version>
         <interface>
@@ -150,7 +133,7 @@
             <instance>UimLpa1</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.radio.qcrilhook</name>
         <version>1.0</version>
         <interface>
@@ -159,7 +142,7 @@
             <instance>oemhook1</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.radio.uim</name>
         <version>1.2</version>
         <interface>
@@ -168,7 +151,7 @@
             <instance>Uim1</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.radio.uim_remote_client</name>
         <version>1.0</version>
         <interface>
@@ -177,7 +160,7 @@
             <instance>uimRemoteClient1</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.radio.uim_remote_server</name>
         <version>1.0</version>
         <interface>
@@ -186,7 +169,7 @@
             <instance>uimRemoteServer1</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.tui_comm</name>
         <version>1.0</version>
         <interface>
@@ -194,7 +177,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.display.allocator</name>
         <version>1.0</version>
         <version>3.0</version>
@@ -204,7 +187,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.display.mapper</name>
         <version>2.0</version>
         <version>3.0</version>
@@ -214,15 +197,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.qti.hardware.display.mapperextensions</name>
-        <version>1.0</version>
-        <interface>
-            <name>IQtiMapperExtensions</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.display.composer</name>
         <version>3.0</version>
         <interface>
@@ -230,16 +205,15 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.radio.internal.deviceinfo</name>
-        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IDeviceInfo</name>
             <instance>deviceinfo</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.imsrtpservice</name>
         <version>3.0</version>
         <interface>
@@ -247,25 +221,24 @@
             <instance>imsrtpservice</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.ims.callinfo</name>
-        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IService</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.qti.hardware.bluetooth_sar</name>
-        <version>1.1</version>
+    <hal format="hidl" optional="false">
+        <name>hardware.google.bluetooth.sar</name>
+        <version>1.0</version>
         <interface>
             <name>IBluetoothSar</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.qti.hardware.bt_channel_avoidance</name>
+    <hal format="hidl" optional="false">
+        <name>hardware.google.bluetooth.bt_channel_avoidance</name>
         <version>1.0</version>
         <interface>
             <name>IBTChannelAvoidance</name>
@@ -274,25 +247,22 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.google.wifi_ext</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.2</version>
         <interface>
             <name>IWifiExt</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.cacert</name>
-        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IService</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.data.connection</name>
-        <transport>hwbinder</transport>
         <version>1.1</version>
         <interface>
             <name>IDataConnection</name>
@@ -300,9 +270,8 @@
             <instance>slot2</instance>
         </interface>
     </hal>
-    <hal format="hidl">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.radio.qtiradio</name>
-        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IQtiRadio</name>
@@ -310,9 +279,8 @@
             <instance>slot2</instance>
         </interface>
     </hal>
-    <hal format="hidl">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.radio.qtiradio</name>
-        <transport>hwbinder</transport>
         <version>2.4</version>
         <interface>
             <name>IQtiRadio</name>
@@ -321,9 +289,8 @@
         </interface>
     </hal>
     <!-- QSEECom HAL service -->
-    <hal format="hidl">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.qseecom</name>
-        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IQSEECom</name>
@@ -331,18 +298,16 @@
         </interface>
     </hal>
     <!-- QSPM HAL service -->
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.qspmhal</name>
-        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IQspmhal</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="false">
         <name>vendor.qti.hardware.qteeconnector</name>
-        <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IAppConnector</name>
@@ -359,5 +324,14 @@
              <name>IDisplay</name>
              <instance>default</instance>
          </interface>
+    </hal>
+    <!-- DSP Service -->
+    <hal format="hidl" optional="false">
+        <name>vendor.qti.hardware.dsp</name>
+        <version>1.0</version>
+        <interface>
+            <name>IDspService</name>
+            <instance>dspservice</instance>
+        </interface>
     </hal>
 </compatibility-matrix>

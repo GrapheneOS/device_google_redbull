@@ -434,10 +434,19 @@
     },
     {
       "Name": "UfsClkGateEnable",
-      "Path": "/sys/devices/platform/soc/1d84000.ufshc/clkgate_enable",
+      "Path": "/dev/sys/block/bootdevice/clkgate_enable",
       "Values": [
         "0",
         "1"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "F2fsRecessModeEnable",
+      "Path": "/dev/sys/fs/by-name/userdata/gc_urgent",
+      "Values": [
+        "2",
+        "0"
       ],
       "ResetOnInit": true
     },
@@ -580,6 +589,12 @@
       "Node": "UfsClkGateEnable",
       "Duration": 200,
       "Value": "0"
+    },
+    {
+      "PowerHint": "DEVICE_IDLE",
+      "Node": "F2fsRecessModeEnable",
+      "Duration": 0,
+      "Value": "2"
     },
     {
       "PowerHint": "LAUNCH",

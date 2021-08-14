@@ -21,16 +21,20 @@ TARGET_BOARD_PLATFORM := lito
 USES_DEVICE_GOOGLE_REDBULL := true
 
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-2a
+TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := cortex-a76
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a76
 
+ifeq (,$(filter %_64,$(TARGET_PRODUCT)))
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a76
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
+endif
 
 BUILD_BROKEN_DUP_RULES := true
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on
@@ -69,15 +73,26 @@ BOARD_USES_METADATA_PARTITION := true
 
 AB_OTA_UPDATER := true
 
-AB_OTA_PARTITIONS += \
-    boot \
-    vendor_boot \
-    system \
-    vbmeta \
-    dtbo \
-    product \
-    vbmeta_system \
-    system_ext
+ifneq ($(PRODUCT_BUILD_SYSTEM_IMAGE),false)
+AB_OTA_PARTITIONS += system
+AB_OTA_PARTITIONS += vbmeta_system
+endif
+ifneq ($(PRODUCT_BUILD_PRODUCT_IMAGE),false)
+AB_OTA_PARTITIONS += product
+endif
+ifneq ($(PRODUCT_BUILD_SYSTEM_EXT_IMAGE),false)
+AB_OTA_PARTITIONS += system_ext
+endif
+ifneq ($(PRODUCT_BUILD_BOOT_IMAGE),false)
+AB_OTA_PARTITIONS += boot
+endif
+ifneq ($(PRODUCT_BUILD_VENDOR_BOOT_IMAGE),false)
+AB_OTA_PARTITIONS += vendor_boot
+AB_OTA_PARTITIONS += dtbo
+endif
+ifneq ($(PRODUCT_BUILD_VBMETA_IMAGE),false)
+AB_OTA_PARTITIONS += vbmeta
+endif
 
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_WIPE := device/google/redbull/recovery.wipe
@@ -88,7 +103,7 @@ TARGET_RECOVERY_UI_LIB := \
     libfstab
 
 # Enable chain partition for system.
-BOARD_AVB_VBMETA_SYSTEM := system
+BOARD_AVB_VBMETA_SYSTEM := system system_ext product
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
@@ -351,6 +366,7 @@ BOOT_KERNEL_MODULES := \
 	sctp_diag.ko \
 	qrtr-smd.ko \
 	msm_drm.ko \
+	dm-user.ko \
 
 # system_ext.img
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -453,9 +469,11 @@ TARGET_HAS_HDR_DISPLAY := true
 
 # Vendor Interface Manifest
 DEVICE_MANIFEST_FILE := device/google/redbull/manifest.xml
+ifeq (,$(filter %_64,$(TARGET_PRODUCT)))
+# Omx is 32 bit only
+DEVICE_MANIFEST_FILE += device/google/redbull/manifest_omx.xml
+endif
 DEVICE_MATRIX_FILE := device/google/redbull/compatibility_matrix.xml
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := device/google/redbull/device_framework_matrix.xml
-DEVICE_FRAMEWORK_MANIFEST_FILE := device/google/redbull/framework_manifest.xml
 
 # Use mke2fs to create ext4 images
 TARGET_USES_MKE2FS := true
@@ -463,14 +481,21 @@ TARGET_USES_MKE2FS := true
 # dynamic partition
 BOARD_SUPER_PARTITION_SIZE := 9755951104
 BOARD_SUPER_PARTITION_GROUPS := google_dynamic_partitions
-BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST := \
-    system \
-    vendor \
-    product \
-    system_ext
+ifneq ($(PRODUCT_BUILD_SYSTEM_IMAGE),false)
+BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST += system
+endif
+ifneq ($(PRODUCT_BUILD_PRODUCT_IMAGE),false)
+BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST += product
+endif
+ifneq ($(PRODUCT_BUILD_SYSTEM_EXT_IMAGE),false)
+BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST += system_ext
+endif
+ifneq ($(PRODUCT_BUILD_VENDOR_IMAGE),false)
+BOARD_GOOGLE_DYNAMIC_PARTITIONS_PARTITION_LIST += vendor
+endif
 
-#BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE is set to BOARD_SUPER_PARTITION_SIZE / 2 - 4MB
-BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE := 4873781248
+#BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE is set to (5GB - 4MB)
+BOARD_GOOGLE_DYNAMIC_PARTITIONS_SIZE := 5364514816
 
 # Set error limit to BOARD_SUPER_PARTITON_SIZE - 500MB
 BOARD_SUPER_PARTITION_ERROR_LIMIT := 9231663104
@@ -512,6 +537,9 @@ ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kasan, $(TARGET_PRODUCT)))
     KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/kasan
 else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_memory, $(TARGET_PRODUCT)))
     KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/debug_memory
+else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_memory_accounting, $(TARGET_PRODUCT)))
+    KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/debug_memory_accounting
+BOARD_KERNEL_CMDLINE += page_owner=on
 else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_locking, $(TARGET_PRODUCT)))
     KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/debug_locking
 else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_hang, $(TARGET_PRODUCT)))

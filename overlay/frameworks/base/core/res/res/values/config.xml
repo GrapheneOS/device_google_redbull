@@ -105,9 +105,6 @@
     <!-- The restoring is handled by modem if it is true -->
     <bool translatable="false" name="skip_restoring_network_selection">true</bool>
 
-    <!-- If device has a sensor that can wake-up the lock screen -->
-    <bool name="config_dozeWakeLockScreenSensorAvailable">true</bool>
-
     <!-- If device supports pickup/lift gesture -->
     <bool name="config_dozePulsePickup">true</bool>
 
@@ -210,13 +207,6 @@
         <item>"9,1"</item>
     </string-array>
 
-    <!-- If the hardware supports specially marking packets that caused a wakeup of the
-         main CPU, set this value to the mark used. -->
-    <integer name="config_networkWakeupPacketMark">0x80000000</integer>
-
-    <!-- Mask to use when checking skb mark defined in config_networkWakeupPacketMark above. -->
-    <integer name="config_networkWakeupPacketMask">0x80000000</integer>
-
     <!-- Specifies whether to decouple the auto-suspend state of the device from the display on/off state. -->
     <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
 
@@ -284,7 +274,7 @@
         <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
         <item>"/system/framework/framework.jar"</item>
         <item>"/system/framework/services.jar"</item>
-        <item>"/system/lib64/libsurfaceflinger.so"</item>
+        <item>"/system/bin/surfaceflinger"</item>
         <item>"/system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk"</item>
         <item>"/vendor/lib64/lib_aion_buffer.so"</item>
         <item>"/vendor/lib64/libcamxexternalformatutils.so"</item>
@@ -347,14 +337,12 @@
         <item>10000</item>
     </integer-array>
 
-    <!-- What source to use to estimate link upstream and downstream bandwidth capacities.
-      Default is carrier_config, but it should be set to modem if the modem is returning
-      predictive (instead of instantaneous) bandwidth estimates.
-      Values are carrier_config and modem. -->
-    <string name="config_bandwidthEstimateSource">modem</string>
-
     <!-- Delay that allows some content to arrive at the display before switching
          from DOZE to ON, in millis. -->
     <integer name="config_wakeUpDelayDoze">32</integer>
 
+    <!-- Whether the device enable the standalone (SA) mode of 5G NR.-->
+    <bool name="config_telephony5gStandalone">true</bool>
+    <!-- Whether the device enable the non-standalone (NSA) mode of 5G NR.-->
+    <bool name="config_telephony5gNonStandalone">true</bool>
 </resources>
