@@ -1031,8 +1031,4 @@ include hardware/google/pixel/citadel/citadel.mk
 
 # Pixel Logger
 include hardware/google/pixel/PixelLogger/PixelLogger.mk
-
-ifneq ($(wildcard vendor/qcom/sm7250/proprietary/prebuilt_grease),)
--include $(LOCAL_PATH)/redbull_allowlist.mk
-endif
 #################################################################################
