@@ -87,7 +87,7 @@
         <int name="smsToMmsTextThreshold" value="-1" />
         <boolean name="support_swap_after_merge_bool" value="false" />
     </carrier_config>
-    <carrier_config mcc="204" mnc="04" spn="C Spire&#10;">
+    <carrier_config mcc="204" mnc="04" spn="C Spire&#13;">
         <string name="carrier_config_version_string">cspire_nl-0.31</string>
         <int name="cdma_3waycall_flash_delay_int" value="300" />
         <boolean name="config_telephony_use_own_number_for_voicemail_bool" value="true" />
@@ -347,7 +347,7 @@
         <string name="carrier_config_version_string">unleashed_be-0.31</string>
     </carrier_config>
     <carrier_config mcc="208" mnc="00">
-        <string name="carrier_config_version_string">orange_fr-25000000314.31</string>
+        <string name="carrier_config_version_string">orange_fr-25000000322.31</string>
         <boolean name="allow_ussd_requests_via_telephony_manager_bool" value="false" />
         <string-array name="carrier_metered_apn_types_strings" num="3">
             <item value="default" />
@@ -370,6 +370,7 @@
         <int name="maxImageWidth" value="2592" />
         <int name="maxMessageSize" value="614400" />
         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
+        <boolean name="show_wfc_location_privacy_policy_bool" value="true" />
         <int name="volte_replacement_rat_int" value="3" />
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
@@ -395,7 +396,7 @@
         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="208" mnc="01" spn="Rakuten">
-        <string name="carrier_config_version_string">rakuten_jp-25000000027.31</string>
+        <string name="carrier_config_version_string">rakuten_jp-25000000025.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G,connected:5G,not_restricted_rrc_idle:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,31;connected,legacy,31;connected_mmwave,not_restricted_rrc_con,31;connected,not_restricted_rrc_con,31;not_restricted_rrc_idle,not_restricted_rrc_con,15</string>
         <boolean name="additional_settings_call_waiting_visibility_bool" value="false" />
@@ -418,7 +419,7 @@
         <boolean name="show_blocking_pay_phone_option_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="208" mnc="01">
-        <string name="carrier_config_version_string">orange_fr-25000000314.31</string>
+        <string name="carrier_config_version_string">orange_fr-25000000322.31</string>
         <boolean name="allow_ussd_requests_via_telephony_manager_bool" value="false" />
         <string-array name="carrier_metered_apn_types_strings" num="3">
             <item value="default" />
@@ -441,11 +442,12 @@
         <int name="maxImageWidth" value="2592" />
         <int name="maxMessageSize" value="614400" />
         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
+        <boolean name="show_wfc_location_privacy_policy_bool" value="true" />
         <int name="volte_replacement_rat_int" value="3" />
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="208" mnc="02">
-        <string name="carrier_config_version_string">orange_fr-25000000314.31</string>
+        <string name="carrier_config_version_string">orange_fr-25000000322.31</string>
         <boolean name="allow_ussd_requests_via_telephony_manager_bool" value="false" />
         <string-array name="carrier_metered_apn_types_strings" num="3">
             <item value="default" />
@@ -468,6 +470,7 @@
         <int name="maxImageWidth" value="2592" />
         <int name="maxMessageSize" value="614400" />
         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
+        <boolean name="show_wfc_location_privacy_policy_bool" value="true" />
         <int name="volte_replacement_rat_int" value="3" />
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
@@ -3884,7 +3887,7 @@
         <boolean name="display_hd_audio_property_bool" value="false" />
     </carrier_config>
     <carrier_config mcc="302" mnc="220" gid1="4B4F">
-        <string name="carrier_config_version_string">koodo_ca-25000000049.31</string>
+        <string name="carrier_config_version_string">koodo_ca-25000000050.31</string>
         <boolean name="always_play_remote_hold_tone_bool" value="true" />
         <int name="carrier_default_wfc_ims_mode_int" value="1" />
         <int name="carrier_default_wfc_ims_roaming_mode_int" value="1" />
@@ -3941,7 +3944,7 @@
         <boolean name="voicemail_notification_persistent_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="302" mnc="220" gid1="5455">
-        <string name="carrier_config_version_string">telus_ca-25000000056.31</string>
+        <string name="carrier_config_version_string">telus_ca-25000000057.31</string>
         <boolean name="always_play_remote_hold_tone_bool" value="true" />
         <int name="carrier_default_wfc_ims_mode_int" value="1" />
         <int name="carrier_default_wfc_ims_roaming_mode_int" value="1" />
@@ -3983,7 +3986,7 @@
         <boolean name="voicemail_notification_persistent_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="302" mnc="221" gid1="4B4F">
-        <string name="carrier_config_version_string">koodo_ca-25000000049.31</string>
+        <string name="carrier_config_version_string">koodo_ca-25000000050.31</string>
         <boolean name="always_play_remote_hold_tone_bool" value="true" />
         <int name="carrier_default_wfc_ims_mode_int" value="1" />
         <int name="carrier_default_wfc_ims_roaming_mode_int" value="1" />
@@ -4040,7 +4043,7 @@
         <boolean name="voicemail_notification_persistent_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="302" mnc="221" gid1="5455">
-        <string name="carrier_config_version_string">telus_ca-25000000056.31</string>
+        <string name="carrier_config_version_string">telus_ca-25000000057.31</string>
         <boolean name="always_play_remote_hold_tone_bool" value="true" />
         <int name="carrier_default_wfc_ims_mode_int" value="1" />
         <int name="carrier_default_wfc_ims_roaming_mode_int" value="1" />
@@ -4789,7 +4792,7 @@
         <string name="carrier_config_version_string">310020-0.31</string>
     </carrier_config>
     <carrier_config mcc="310" mnc="026">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -4874,7 +4877,7 @@
         <int name="volte_replacement_rat_int" value="6" />
     </carrier_config>
     <carrier_config mcc="310" mnc="030">
-        <string name="carrier_config_version_string">att_us-25000000104.31</string>
+        <string name="carrier_config_version_string">att_us-25000000102.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -5305,7 +5308,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="160">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -5384,7 +5387,7 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="310" mnc="170">
-        <string name="carrier_config_version_string">att_us-25000000104.31</string>
+        <string name="carrier_config_version_string">att_us-25000000102.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -5549,7 +5552,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="200">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -5646,7 +5649,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="210">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -5743,7 +5746,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="220">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -5840,7 +5843,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="230">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -5919,7 +5922,7 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="310" mnc="240" gid1="6230">
-        <string name="carrier_config_version_string">boosttmo_us-25000000010.31</string>
+        <string name="carrier_config_version_string">boosttmo_us-25000000008.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -5986,7 +5989,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="240">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -6083,7 +6086,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="250">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -6179,7 +6182,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="2AC9">
-        <string name="carrier_config_version_string">consumercellulartmo_us-25000000564.31</string>
+        <string name="carrier_config_version_string">consumercellulartmo_us-25000000562.31</string>
         <boolean name="carrier_default_wfc_ims_enabled_bool" value="true" />
         <int name="carrier_default_wfc_ims_mode_int" value="1" />
         <boolean name="carrier_default_wfc_ims_roaming_enabled_bool" value="true" />
@@ -6225,7 +6228,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="4153">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -6297,7 +6300,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="4201">
-        <string name="carrier_config_version_string">redpockettmo_us-25000000569.31</string>
+        <string name="carrier_config_version_string">redpockettmo_us-25000000567.31</string>
         <boolean name="carrier_ims_gba_required_bool" value="true" />
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_volte_tty_supported_bool" value="false" />
@@ -6313,7 +6316,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="4358">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -6385,7 +6388,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="4753">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -6457,7 +6460,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="4D4B">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -6529,7 +6532,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="534D">
-        <string name="carrier_config_version_string">simple_us-25000000526.31</string>
+        <string name="carrier_config_version_string">simple_us-25000000524.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -6599,7 +6602,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="6132">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -6671,7 +6674,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="6134">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -6743,7 +6746,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="6135">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -6815,7 +6818,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="6957">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -6887,7 +6890,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="6C79">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -6983,7 +6986,7 @@
         <int name="maxMessageSize" value="1048576" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="7033">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -7055,7 +7058,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="7477">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -7127,7 +7130,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="7531">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -7199,7 +7202,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="756D">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -7271,7 +7274,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="7A73">
-        <string name="carrier_config_version_string">tmomvno_us-25000000104.31</string>
+        <string name="carrier_config_version_string">tmomvno_us-25000000097.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="0" />
         <boolean name="carrier_default_data_roaming_enabled_bool" value="true" />
@@ -7343,7 +7346,7 @@
         <string-array name="wifi.passpoint_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="DDFF">
-        <string name="carrier_config_version_string">tracfonetmo_us-25000000456.31</string>
+        <string name="carrier_config_version_string">tracfonetmo_us-25000000454.31</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="E751E163E91E041382839556D31302DB7058C44D9DF1B5B27FC43BD8F0EE2BBA" />
             <item value="4AD124DE517BC6BA915B88C17F0AADF764469842156325C26B7CD8B888C41C71" />
@@ -7395,7 +7398,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260" gid1="DEFF">
-        <string name="carrier_config_version_string">tracfonetmo_us-25000000456.31</string>
+        <string name="carrier_config_version_string">tracfonetmo_us-25000000454.31</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="E751E163E91E041382839556D31302DB7058C44D9DF1B5B27FC43BD8F0EE2BBA" />
             <item value="4AD124DE517BC6BA915B88C17F0AADF764469842156325C26B7CD8B888C41C71" />
@@ -7454,7 +7457,7 @@
         <boolean name="config_telephony_use_own_number_for_voicemail_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="310" mnc="260">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -7551,7 +7554,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="270">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -8263,7 +8266,7 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="310" mnc="280" gid1="53FF">
-        <string name="carrier_config_version_string">att5g_us-25000000091.31</string>
+        <string name="carrier_config_version_string">att5g_us-25000000089.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -9060,7 +9063,7 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="310" mnc="280">
-        <string name="carrier_config_version_string">att_us-25000000104.31</string>
+        <string name="carrier_config_version_string">att_us-25000000102.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -9226,7 +9229,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="300">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -9323,7 +9326,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="310">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -9452,7 +9455,7 @@
         <boolean name="force_home_network_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="310" mnc="380">
-        <string name="carrier_config_version_string">att_us-25000000104.31</string>
+        <string name="carrier_config_version_string">att_us-25000000102.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -10232,7 +10235,7 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="310" mnc="410" gid1="53FF">
-        <string name="carrier_config_version_string">att5g_us-25000000091.31</string>
+        <string name="carrier_config_version_string">att5g_us-25000000089.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -11029,7 +11032,7 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="310" mnc="410">
-        <string name="carrier_config_version_string">att_us-25000000104.31</string>
+        <string name="carrier_config_version_string">att_us-25000000102.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -11219,7 +11222,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="490">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -11316,7 +11319,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="530">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -11395,7 +11398,7 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="310" mnc="560">
-        <string name="carrier_config_version_string">att_us-25000000104.31</string>
+        <string name="carrier_config_version_string">att_us-25000000102.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -11578,7 +11581,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="590">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -11657,7 +11660,7 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="310" mnc="600">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -11757,7 +11760,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="640">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -11854,7 +11857,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="660">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -11991,7 +11994,7 @@
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="310" mnc="800">
-        <string name="carrier_config_version_string">tmobile_us-25000000101.31</string>
+        <string name="carrier_config_version_string">tmobile_us-25000000096.31</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,30;connected,legacy,30;not_restricted_rrc_idle,legacy,30;not_restricted_rrc_con,legacy,30</string>
         <string-array name="carrier_certificate_string_array" num="3">
             <item value="27F96DBAB77B31F6953E4CD2C2DEFE15F5D7C78F073DD7162018EF476B097C34" />
@@ -12119,7 +12122,7 @@
         <string name="carrier_config_version_string">310930SPN=COPPERVALLEY-0.31</string>
     </carrier_config>
     <carrier_config mcc="310" mnc="950" gid1="53FF">
-        <string name="carrier_config_version_string">att5g_us-25000000091.31</string>
+        <string name="carrier_config_version_string">att5g_us-25000000089.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -12263,7 +12266,7 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="310" mnc="950">
-        <string name="carrier_config_version_string">att_us-25000000104.31</string>
+        <string name="carrier_config_version_string">att_us-25000000102.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -12505,7 +12508,7 @@
         <string name="carrier_config_version_string">311140SPN=SPROCKET-0.31</string>
     </carrier_config>
     <carrier_config mcc="311" mnc="180" gid1="53FF">
-        <string name="carrier_config_version_string">att5g_us-25000000091.31</string>
+        <string name="carrier_config_version_string">att5g_us-25000000089.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -12649,7 +12652,7 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="311" mnc="180">
-        <string name="carrier_config_version_string">att_us-25000000104.31</string>
+        <string name="carrier_config_version_string">att_us-25000000102.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
         <int-array name="5g_nr_ssrsrp_thresholds_int_array" num="4">
@@ -12829,7 +12832,7 @@
         <string name="carrier_config_version_string">311210-0.31</string>
     </carrier_config>
     <carrier_config mcc="311" mnc="230">
-        <string name="carrier_config_version_string">cspire_us-25000000422.31</string>
+        <string name="carrier_config_version_string">cspire_us-25000000423.31</string>
         <int name="carrier_default_wfc_ims_mode_int" value="1" />
         <boolean name="carrier_default_wfc_ims_roaming_enabled_bool" value="true" />
         <int name="carrier_ussd_method_int" value="2" />
@@ -12866,6 +12869,7 @@
         <int name="smsToMmsTextThreshold" value="-1" />
         <boolean name="support_swap_after_merge_bool" value="false" />
         <boolean name="use_wfc_home_network_mode_in_roaming_network_bool" value="true" />
+        <int name="volte_replacement_rat_int" value="6" />
         <int name="wfc_spn_format_idx_int" value="1" />
     </carrier_config>
     <carrier_config mcc="311" mnc="310" spn="LEACO">
@@ -13021,7 +13025,7 @@
         <string name="carrier_config_version_string">311450SPN=PTCI-0.31</string>
     </carrier_config>
     <carrier_config mcc="311" mnc="480" gid1="BAE1000000000000">
-        <string name="carrier_config_version_string">visible_us-25000000431.31</string>
+        <string name="carrier_config_version_string">visible_us-25000000432.31</string>
         <boolean name="aliasEnabled" value="true" />
         <int name="aliasMaxChars" value="48" />
         <int name="aliasMinChars" value="2" />
@@ -13059,7 +13063,7 @@
         </string-array>
         <int name="carrier_default_wfc_ims_mode_int" value="1" />
         <int name="carrier_default_wfc_ims_roaming_mode_int" value="1" />
-        <string name="carrier_eri_file_name_string">eri_311480.xml</string>
+        <string name="carrier_eri_file_name_string">eri.xml</string>
         <string-array name="carrier_metered_apn_types_strings" num="3">
             <item value="default" />
             <item value="dun" />
@@ -13078,6 +13082,11 @@
         <boolean name="carrier_volte_provisioned_bool" value="true" />
         <boolean name="carrier_volte_provisioning_required_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <int-array name="cdma_enhanced_roaming_indicator_for_home_network_int_array" num="1">
+            <item value="1" />
+        </int-array>
+        <boolean name="cdma_home_registered_plmn_name_override_bool" value="false" />
+        <string name="cdma_home_registered_plmn_name_string" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
         <boolean name="disable_severe_when_extreme_disabled_bool" value="false" />
         <boolean name="disable_voice_barring_notification_bool" value="true" />
@@ -13172,6 +13181,7 @@
         <int name="smsToMmsTextThreshold" value="7" />
         <boolean name="sms_requires_destination_number_conversion_bool" value="true" />
         <boolean name="support_3gpp_call_forwarding_while_roaming_bool" value="false" />
+        <boolean name="support_cdma_1x_voice_calls_bool" value="false" />
         <boolean name="support_downgrade_vt_to_audio_bool" value="false" />
         <boolean name="support_pause_ims_video_calls_bool" value="true" />
         <boolean name="support_swap_after_merge_bool" value="false" />
@@ -13183,10 +13193,10 @@
         <int name="volte_replacement_rat_int" value="6" />
         <int name="wfc_spn_format_idx_int" value="1" />
         <boolean name="wifi_calls_can_be_hd_audio" value="false" />
-        <boolean name="world_mode_enabled_bool" value="true" />
+        <boolean name="world_mode_enabled_bool" value="false" />
     </carrier_config>
     <carrier_config mcc="311" mnc="480">
-        <string name="carrier_config_version_string">visible_us-25000000431.31</string>
+        <string name="carrier_config_version_string">visible_us-25000000432.31</string>
         <boolean name="aliasEnabled" value="true" />
         <int name="aliasMaxChars" value="48" />
         <int name="aliasMinChars" value="2" />
@@ -13224,7 +13234,7 @@
         </string-array>
         <int name="carrier_default_wfc_ims_mode_int" value="1" />
         <int name="carrier_default_wfc_ims_roaming_mode_int" value="1" />
-        <string name="carrier_eri_file_name_string">eri_311480.xml</string>
+        <string name="carrier_eri_file_name_string">eri.xml</string>
         <string-array name="carrier_metered_apn_types_strings" num="3">
             <item value="default" />
             <item value="dun" />
@@ -13243,6 +13253,11 @@
         <boolean name="carrier_volte_provisioned_bool" value="true" />
         <boolean name="carrier_volte_provisioning_required_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <int-array name="cdma_enhanced_roaming_indicator_for_home_network_int_array" num="1">
+            <item value="1" />
+        </int-array>
+        <boolean name="cdma_home_registered_plmn_name_override_bool" value="false" />
+        <string name="cdma_home_registered_plmn_name_string" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
         <boolean name="disable_severe_when_extreme_disabled_bool" value="false" />
         <boolean name="disable_voice_barring_notification_bool" value="true" />
@@ -13337,6 +13352,7 @@
         <int name="smsToMmsTextThreshold" value="7" />
         <boolean name="sms_requires_destination_number_conversion_bool" value="true" />
         <boolean name="support_3gpp_call_forwarding_while_roaming_bool" value="false" />
+        <boolean name="support_cdma_1x_voice_calls_bool" value="false" />
         <boolean name="support_downgrade_vt_to_audio_bool" value="false" />
         <boolean name="support_pause_ims_video_calls_bool" value="true" />
         <boolean name="support_swap_after_merge_bool" value="false" />
@@ -13348,10 +13364,10 @@
         <int name="volte_replacement_rat_int" value="6" />
         <int name="wfc_spn_format_idx_int" value="1" />
         <boolean name="wifi_calls_can_be_hd_audio" value="false" />
-        <boolean name="world_mode_enabled_bool" value="true" />
+        <boolean name="world_mode_enabled_bool" value="false" />
     </carrier_config>
     <carrier_config mcc="311" mnc="490">
-        <string name="carrier_config_version_string">visible_us-25000000431.31</string>
+        <string name="carrier_config_version_string">visible_us-25000000432.31</string>
         <boolean name="aliasEnabled" value="true" />
         <int name="aliasMaxChars" value="48" />
         <int name="aliasMinChars" value="2" />
@@ -13389,7 +13405,7 @@
         </string-array>
         <int name="carrier_default_wfc_ims_mode_int" value="1" />
         <int name="carrier_default_wfc_ims_roaming_mode_int" value="1" />
-        <string name="carrier_eri_file_name_string">eri_311480.xml</string>
+        <string name="carrier_eri_file_name_string">eri.xml</string>
         <string-array name="carrier_metered_apn_types_strings" num="3">
             <item value="default" />
             <item value="dun" />
@@ -13408,6 +13424,11 @@
         <boolean name="carrier_volte_provisioned_bool" value="true" />
         <boolean name="carrier_volte_provisioning_required_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <int-array name="cdma_enhanced_roaming_indicator_for_home_network_int_array" num="1">
+            <item value="1" />
+        </int-array>
+        <boolean name="cdma_home_registered_plmn_name_override_bool" value="false" />
+        <string name="cdma_home_registered_plmn_name_string" />
         <boolean name="disable_cdma_activation_code_bool" value="true" />
         <boolean name="disable_severe_when_extreme_disabled_bool" value="false" />
         <boolean name="disable_voice_barring_notification_bool" value="true" />
@@ -13502,6 +13523,7 @@
         <int name="smsToMmsTextThreshold" value="7" />
         <boolean name="sms_requires_destination_number_conversion_bool" value="true" />
         <boolean name="support_3gpp_call_forwarding_while_roaming_bool" value="false" />
+        <boolean name="support_cdma_1x_voice_calls_bool" value="false" />
         <boolean name="support_downgrade_vt_to_audio_bool" value="false" />
         <boolean name="support_pause_ims_video_calls_bool" value="true" />
         <boolean name="support_swap_after_merge_bool" value="false" />
@@ -13513,7 +13535,7 @@
         <int name="volte_replacement_rat_int" value="6" />
         <int name="wfc_spn_format_idx_int" value="1" />
         <boolean name="wifi_calls_can_be_hd_audio" value="false" />
-        <boolean name="world_mode_enabled_bool" value="true" />
+        <boolean name="world_mode_enabled_bool" value="false" />
     </carrier_config>
     <carrier_config mcc="311" mnc="500" spn="24-7 WIRELESS">
         <string name="carrier_config_version_string">311500SPN=24-7 WIRELESS-0.31</string>
@@ -19632,7 +19654,7 @@
         <string name="sim_country_iso_override_string">jp</string>
     </carrier_config>
     <carrier_config mcc="440" mnc="10">
-        <string name="carrier_config_version_string">docomo_jp-25000000340.31</string>
+        <string name="carrier_config_version_string">docomo_jp-25000000338.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G,connected:5G,not_restricted_rrc_idle:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,31;connected,legacy,31;connected_mmwave,not_restricted_rrc_con,31;connected,not_restricted_rrc_con,31;not_restricted_rrc_idle,not_restricted_rrc_con,15</string>
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
@@ -19667,7 +19689,7 @@
         <int name="volte_replacement_rat_int" value="3" />
     </carrier_config>
     <carrier_config mcc="440" mnc="11">
-        <string name="carrier_config_version_string">rakuten_jp-25000000027.31</string>
+        <string name="carrier_config_version_string">rakuten_jp-25000000025.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G,connected:5G,not_restricted_rrc_idle:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,31;connected,legacy,31;connected_mmwave,not_restricted_rrc_con,31;connected,not_restricted_rrc_con,31;not_restricted_rrc_idle,not_restricted_rrc_con,15</string>
         <boolean name="additional_settings_call_waiting_visibility_bool" value="false" />
@@ -19690,10 +19712,10 @@
         <boolean name="show_blocking_pay_phone_option_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="440" mnc="20">
-        <string name="carrier_config_version_string">softbank_jp-25000000315.31</string>
+        <string name="carrier_config_version_string">softbank_jp-25000000312.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G,connected:5G,not_restricted_rrc_idle:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,31;connected,legacy,31;connected_mmwave,not_restricted_rrc_con,31;connected,not_restricted_rrc_con,31;not_restricted_rrc_idle,not_restricted_rrc_con,15</string>
-        <boolean name="allow_hold_call_during_emergency_bool" value="true" />
+        <boolean name="allow_hold_call_during_emergency_bool" value="false" />
         <boolean name="always_show_emergency_alert_onoff_bool" value="true" />
         <boolean name="call_barring_over_ut_warning_bool" value="true" />
         <boolean name="call_barring_supports_deactivate_all_bool" value="false" />
@@ -19739,11 +19761,11 @@
         <int name="volte_replacement_rat_int" value="3" />
     </carrier_config>
     <carrier_config mcc="440" mnc="50">
-        <string name="carrier_config_version_string">kddi_jp-25000000069.31</string>
+        <string name="carrier_config_version_string">kddi_jp-25000000066.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G,connected:5G,not_restricted_rrc_idle:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,31;connected,legacy,31;connected_mmwave,not_restricted_rrc_con,31;connected,not_restricted_rrc_con,31;not_restricted_rrc_idle,not_restricted_rrc_con,15</string>
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
-        <boolean name="allow_hold_call_during_emergency_bool" value="true" />
+        <boolean name="allow_hold_call_during_emergency_bool" value="false" />
         <boolean name="allow_metered_network_for_cert_download_bool" value="true" />
         <boolean name="call_forwarding_when_busy_supported_bool" value="false" />
         <boolean name="call_forwarding_when_unanswered_supported_bool" value="false" />
@@ -19785,11 +19807,11 @@
         </string-array>
     </carrier_config>
     <carrier_config mcc="440" mnc="51" gid1="10">
-        <string name="carrier_config_version_string">kddi_jp-25000000069.31</string>
+        <string name="carrier_config_version_string">kddi_jp-25000000066.31</string>
         <string name="5g_icon_configuration_string">connected_mmwave:5G,connected:5G,not_restricted_rrc_idle:5G</string>
         <string name="5g_icon_display_grace_period_string">connected_mmwave,legacy,31;connected,legacy,31;connected_mmwave,not_restricted_rrc_con,31;connected,not_restricted_rrc_con,31;not_restricted_rrc_idle,not_restricted_rrc_con,15</string>
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
-        <boolean name="allow_hold_call_during_emergency_bool" value="true" />
+        <boolean name="allow_hold_call_during_emergency_bool" value="false" />
         <boolean name="allow_metered_network_for_cert_download_bool" value="true" />
         <boolean name="call_forwarding_when_busy_supported_bool" value="false" />
         <boolean name="call_forwarding_when_unanswered_supported_bool" value="false" />
@@ -19874,9 +19896,9 @@
         <string-array name="wifi.network_profiles_string_array" num="0" />
     </carrier_config>
     <carrier_config mcc="440" mnc="51">
-        <string name="carrier_config_version_string">kddimvno_jp-25000000456.31</string>
+        <string name="carrier_config_version_string">kddimvno_jp-25000000453.31</string>
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
-        <boolean name="allow_hold_call_during_emergency_bool" value="true" />
+        <boolean name="allow_hold_call_during_emergency_bool" value="false" />
         <string-array name="carrier_additional_cbs_channels_strings" num="1">
             <item value="0xA003:type=other, emergency=true" />
         </string-array>
