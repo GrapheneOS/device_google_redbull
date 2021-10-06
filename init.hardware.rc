@@ -34,6 +34,7 @@ service vendor.charger /system/bin/charger
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
+    mount_all /vendor/etc/fstab.persist --early
 
     # configure governor settings
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor schedutil
@@ -81,26 +82,19 @@ on init && property:vendor.skip.init=0
     write /sys/block/sda/queue/iostats 0
     write /sys/block/sda/queue/scheduler cfq
     write /sys/block/sda/queue/iosched/slice_idle 0
-    write /sys/block/sda/queue/read_ahead_kb 2048
     write /sys/block/sda/queue/nr_requests 256
-    write /sys/block/dm-0/queue/read_ahead_kb 2048
-    write /sys/block/dm-1/queue/read_ahead_kb 2048
-    write /sys/block/dm-2/queue/read_ahead_kb 2048
-    write /sys/block/dm-3/queue/read_ahead_kb 2048
-    write /sys/block/dm-4/queue/read_ahead_kb 2048
-    write /sys/block/dm-5/queue/read_ahead_kb 2048
-    write /sys/block/dm-6/queue/read_ahead_kb 2048
-    write /sys/block/dm-7/queue/read_ahead_kb 2048
-    write /sys/block/dm-8/queue/read_ahead_kb 2048
-
-    # Disable UFS powersaving
-    write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 0
 
     # Disable powersaving
     write /sys/module/lpm_levels/parameters/sleep_disabled 1
 
-    wait /dev/block/platform/soc/${ro.boot.bootdevice}
-    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    wait /dev/block/platform/${ro.boot.boot_devices}
+    symlink /dev/block/platform/${ro.boot.boot_devices} /dev/block/bootdevice
+
+    # to access UFS/eMMC sysfs directly
+    symlink /sys/devices/platform/${ro.boot.boot_devices} /dev/sys/block/bootdevice
+
+    # Disable UFS powersaving
+    write /dev/sys/block/bootdevice/clkgate_enable 0
 
     # start qseecomd early as we mount system/ vendor/ early
     # vold needs keymaster that needs qseecomd
@@ -130,13 +124,6 @@ on init && property:vendor.skip.init=0
     # Some user code relies on ro.boot.hardware.revision
     setprop ro.boot.hardware.revision ${ro.revision}
 
-    mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0-7
-    write /dev/cpuset/camera-daemon/mems 0
-    chown system system /dev/cpuset/camera-daemon
-    chown system system /dev/cpuset/camera-daemon/tasks
-    chmod 0664 /dev/cpuset/camera-daemon/tasks
-
     mkdir /dev/cpuset/camera-daemon-dedicated
     write /dev/cpuset/camera-daemon-dedicated/cpus 0-7
     write /dev/cpuset/camera-daemon-dedicated/mems 0
@@ -144,13 +131,9 @@ on init && property:vendor.skip.init=0
     chown system system /dev/cpuset/camera-daemon-dedicated/tasks
     chmod 0664 /dev/cpuset/camera-daemon-dedicated/tasks
 
-    # create an stune group for camera-specific processes
-    mkdir /dev/stune/camera-daemon
+    # set default schedTune value for camera-daemon
     write /dev/stune/camera-daemon/schedtune.prefer_idle 1
     write /dev/stune/camera-daemon/schedtune.boost 0
-    chown system system /dev/stune/camera-daemon
-    chown system system /dev/stune/camera-daemon/tasks
-    chmod 0664 /dev/stune/camera-daemon/tasks
 
     # Allow PAI targeting per hardware SKU
     setprop ro.oem.key1 ${ro.boot.hardware.sku}
@@ -174,11 +157,15 @@ on init && property:vendor.skip.init=0
     chown system system /sys/devices/platform/soc/soc:google,charger/bd_trigger_voltage
     chown system system /sys/devices/platform/soc/soc:google,charger/bd_temp_enable
     chown system system /sys/devices/platform/soc/soc:google,charger/bd_temp_dry_run
+    chown system system /sys/devices/platform/soc/soc:google,charger/bd_clear
     chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_enable
     chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_recharge_soc
     chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_cnt
     chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_dry_run
     chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_trickle_reset_sec
+    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/bd_clear
+    chown system system /sys/devices/platform/soc/soc:google,battery/power_supply/battery/health_safety_margin
+    chown system system /sys/class/power_supply/wireless/device/mitigate_threshold
 
     # report max frequency to unity tasks.
     write /proc/sys/kernel/sched_lib_name "UnityMain,libunity.so"
@@ -272,8 +259,6 @@ on late-fs
 
     # Mount RW partitions which need run fsck
     mount_all /vendor/etc/fstab.${ro.boot.hardware.platform} --late
-    # Boot time fs tune
-    write /sys/block/dm-9/queue/read_ahead_kb 2048
 
     # Required for time_daemon
     mkdir /mnt/vendor/persist/time 0770 system system
@@ -465,13 +450,13 @@ on early-boot
 
     # Permission for Pixelstats
     chown system system /sys/class/misc/msm_cirrus_playback/resistance_left_right
-    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_read_cnt
-    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_write_cnt
-    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_unmap_cnt
-    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/slowio_sync_cnt
+    chown system system /dev/sys/block/bootdevice/slowio_read_cnt
+    chown system system /dev/sys/block/bootdevice/slowio_write_cnt
+    chown system system /dev/sys/block/bootdevice/slowio_unmap_cnt
+    chown system system /dev/sys/block/bootdevice/slowio_sync_cnt
 
     # Permission for Health Storage HAL
-    chown system system /sys/devices/platform/soc/${ro.boot.bootdevice}/manual_gc
+    chown system system /dev/sys/block/bootdevice/manual_gc
 
     # Permissions for reading display native color gamut
     chown system graphics /mnt/vendor/persist/display/native_gamut.csv
@@ -529,19 +514,8 @@ on property:sys.boot_completed=1
     setprop vendor.setup.power 1
 
     # Runtime fs tuning
-    write /sys/block/sda/queue/read_ahead_kb 128
     write /sys/block/sda/queue/nr_requests 128
     write /sys/block/sda/queue/iostats 1
-    write /sys/block/dm-0/queue/read_ahead_kb 128
-    write /sys/block/dm-1/queue/read_ahead_kb 128
-    write /sys/block/dm-2/queue/read_ahead_kb 128
-    write /sys/block/dm-3/queue/read_ahead_kb 128
-    write /sys/block/dm-4/queue/read_ahead_kb 128
-    write /sys/block/dm-5/queue/read_ahead_kb 128
-    write /sys/block/dm-6/queue/read_ahead_kb 128
-    write /sys/block/dm-7/queue/read_ahead_kb 128
-    write /sys/block/dm-8/queue/read_ahead_kb 128
-    write /sys/block/dm-9/queue/read_ahead_kb 128
 
     # Block layer tuning: discard chunk size up to 128MB
     # Otherwise, contiguous discards can be merged
@@ -715,7 +689,7 @@ on post-fs-data && property:persist.vendor.sys.ssr.enable_ramdumps=1 && property
     mkdir /data/vendor/wifidump 771 root system
     mkdir /data/vendor/ramdump 771 root system
     mkdir /data/vendor/ssrdump 771 root system
-    mkdir /data/vendor/ssrlog  771 root system
+    mkdir /data/vendor/ssrlog  775 root system
     start vendor.ss_ramdump
 
 on property:persist.vendor.sys.ssr.enable_ramdumps=0
@@ -744,6 +718,29 @@ service vendor.ssgtzd /vendor/bin/ssgtzd
 on property:sys.retaildemo.enabled=1
     setprop persist.vendor.charge.stop.level 35
     setprop persist.vendor.charge.start.level 30
+
+# Test Harness Mode default battery profile. Restricted but not too restricted.
+on  property:persist.sys.test_harness=1 && property:persist.vendor.testing_battery_profile=0
+    setprop persist.vendor.charge.stop.level 70
+    setprop persist.vendor.charge.start.level 35
+    setprop vendor.battery.defender.disable 1
+
+# Extremely restricted battery profile.
+on  property:persist.sys.test_harness=1 && property:persist.vendor.testing_battery_profile=1
+    setprop persist.vendor.charge.stop.level 50
+    setprop persist.vendor.charge.start.level 35
+    setprop vendor.battery.defender.disable 1
+
+# Normal behavior (as if the device was a regular device)
+on  property:persist.sys.test_harness=1 && property:persist.vendor.testing_battery_profile=2
+    setprop persist.vendor.charge.stop.level 100
+    setprop persist.vendor.charge.start.level 0
+
+# Unrestricted, allows charging to 100%
+on  property:persist.sys.test_harness=1 && property:persist.vendor.testing_battery_profile=3
+    setprop persist.vendor.charge.stop.level 100
+    setprop persist.vendor.charge.start.level 0
+    setprop vendor.battery.defender.disable 1
 
 service insmod_sh /vendor/bin/init.insmod.sh /vendor/etc/init.insmod.${ro.hardware}.cfg
     class main

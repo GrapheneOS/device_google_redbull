@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-on early-boot
+on post-fs-data
     mkdir /config/usb_gadget/g1 0770
     mkdir /config/usb_gadget/g1/strings/0x409 0770
     write /config/usb_gadget/g1/bcdUSB 0x0200
@@ -49,6 +49,7 @@ on early-boot
     mount functionfs mtp /dev/usb-ffs/mtp rmode=0770,fmode=0660,uid=1024,gid=1024,no_disconnect=1
     mount functionfs ptp /dev/usb-ffs/ptp rmode=0770,fmode=0660,uid=1024,gid=1024,no_disconnect=1
     setprop sys.usb.mtp.device_type 3
+    setprop sys.usb.mtp.batchcancel true
     setprop sys.usb.controller "a600000.dwc3"
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
     write /sys/module/libcomposite/parameters/disable_l1_for_hs "y"

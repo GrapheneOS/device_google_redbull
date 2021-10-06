@@ -30,12 +30,15 @@ PRODUCT_SOONG_NAMESPACES += \
     device/google/redbull \
     hardware/qcom/sm7250 \
     vendor/google/airbrush/floral \
-    vendor/google/biometrics/face \
+    vendor/google/biometrics/face/florence \
     vendor/google/darwinn \
     hardware/qcom/sm7250/display \
     vendor/google/camera \
     vendor/qcom/sm7250 \
-    vendor/google/interfaces
+    vendor/google/interfaces \
+    vendor/google_devices/common/proprietary/confirmatioui_hal \
+    vendor/google_nos/host/android \
+    vendor/google_nos/test/system-test-harness
 
 # Include GPS soong namespace
 PRODUCT_SOONG_NAMESPACES += \
@@ -67,6 +70,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.vendor.debug.sensors.accel_cal=1
 
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.vendor.testing_battery_profile=2
+
 # The default value of this variable is false and should only be set to true when
 # the device allows users to retain eSIM profiles after factory reset of user data.
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -76,7 +82,7 @@ PRODUCT_COPY_FILES += \
     device/google/redbull/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml \
     device/google/redbull/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.software.verified_boot.xml
+    frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
 
 # Enforce privapp-permissions whitelist
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -84,7 +90,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES += \
     messaging \
-    dmabuf_dump
 
 TARGET_PRODUCT_PROP := $(LOCAL_PATH)/product.prop
 
@@ -95,6 +100,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_SHIPPING_API_LEVEL := 30
+BOARD_SHIPPING_API_LEVEL := 30
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -102,11 +108,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
     $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.$(PRODUCT_PLATFORM) \
     $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_PLATFORM) \
+    $(LOCAL_PATH)/fstab.persist:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.persist \
     $(LOCAL_PATH)/init.hardware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).rc \
     $(LOCAL_PATH)/init.modem.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.modem.sh \
     $(LOCAL_PATH)/init.power.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).power.rc \
     $(LOCAL_PATH)/init.radio.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.radio.sh \
     $(LOCAL_PATH)/init.hardware.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).usb.rc \
+    $(LOCAL_PATH)/init.insmod.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.insmod.sh \
     $(LOCAL_PATH)/init.sensors.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.sensors.sh \
     $(LOCAL_PATH)/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
 		$(LOCAL_PATH)/init.ramoops.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.ramoops.sh
@@ -145,6 +153,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.sys.sdcardfs=1
 
+# Use FUSE passthrough
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.fuse.passthrough.enable=true
+
 PRODUCT_PACKAGES += \
     bootctrl.lito \
     bootctrl.lito.recovery
@@ -159,7 +171,9 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_system=true
 
 PRODUCT_PACKAGES += \
-    update_engine_sideload \
+    update_engine_sideload
+
+PRODUCT_PACKAGES_DEBUG += \
     sg_write_buffer \
     f2fs_io \
     check_f2fs
@@ -179,7 +193,14 @@ PRODUCT_PACKAGES += \
 
 # Context hub HAL
 PRODUCT_PACKAGES += \
-    android.hardware.contexthub@1.1-service.generic
+    android.hardware.contexthub@1.2-service.generic
+
+# CHRE tools
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += \
+    chre_power_test_client \
+    chre_test_client
+endif
 
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
@@ -221,8 +242,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
-    frameworks/native/data/etc/android.software.vulkan.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
-    frameworks/native/data/etc/android.software.opengles.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
+    frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml \
+    frameworks/native/data/etc/android.software.opengles.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
     frameworks/native/data/etc/android.hardware.telephony.carrierlock.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.carrierlock.xml \
     frameworks/native/data/etc/android.hardware.strongbox_keystore.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.strongbox_keystore.xml \
     frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml \
@@ -310,7 +331,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # camera enable RT thread
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.realtimethread=1
+    persist.vendor.camera.realtimethread=1
 
 # Lets the vendor library that Google Camera HWL is enabled
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -382,14 +403,13 @@ PRODUCT_PACKAGES += \
 
 #Bluetooth SAR HAL
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.bluetooth_sar@1.1-impl \
-    vendor.qti.hardware.bluetooth_sar@1.0-impl
+    hardware.google.bluetooth.sar@1.0-impl
 PRODUCT_PACKAGES_DEBUG += \
     bluetooth_sar_test
 
 #Bluetooth AFH HAL
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.bt_channel_avoidance@1.0-impl
+    hardware.google.bluetooth.bt_channel_avoidance@1.0-impl
 
 # Bluetooth SoC
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -406,8 +426,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # DRM HAL
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.3-service.clearkey \
-    android.hardware.drm@1.3-service.widevine
+    android.hardware.drm@1.4-service.clearkey \
+    android.hardware.drm@1.4-service.widevine
 
 # NFC and Secure Element packages
 PRODUCT_PACKAGES += \
@@ -473,8 +493,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.ims.mm_minqp=1
 
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.6-impl-google \
-    android.hardware.camera.provider@2.6-service-google \
+    android.hardware.camera.provider@2.7-impl-google \
+    android.hardware.camera.provider@2.7-service-google \
     camera.lito \
     lib_multicam_dualfov_capture_session \
     libgooglecamerahwl_impl \
@@ -486,7 +506,7 @@ PRODUCT_PACKAGES += \
 # Google Camera HAL test libraries in debug builds
 PRODUCT_PACKAGES_DEBUG += \
     libgoogle_camera_hal_proprietary_tests \
-    libgoogle_camera_hal_tests.vendor
+    libgoogle_camera_hal_tests
 
 PRODUCT_PACKAGES += \
     fs_config_dirs \
@@ -511,6 +531,8 @@ PRODUCT_PACKAGES += \
 
 ENABLE_VENDOR_RIL_SERVICE := true
 
+USE_QCRIL_OEMHOOK := true
+
 HOSTAPD := hostapd
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 HOSTAPD += hostapd_cli
@@ -532,6 +554,10 @@ PRODUCT_PACKAGES += \
     wificond \
     libwpa_client \
     WifiOverlay
+
+# Connectivity
+PRODUCT_PACKAGES += \
+    ConnectivityOverlay
 
 # WLAN driver configuration files
 PRODUCT_COPY_FILES += \
@@ -560,13 +586,11 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@6.0-impl:32 \
-    android.hardware.audio@5.0-impl:32 \
-    android.hardware.audio.effect@6.0-impl:32 \
-    android.hardware.audio.effect@5.0-impl:32 \
+    android.hardware.audio@7.0-impl:32 \
+    android.hardware.audio.effect@7.0-impl:32 \
     android.hardware.soundtrigger@2.3-impl \
     android.hardware.bluetooth.audio@2.0-impl \
-    android.hardware.audio@2.0-service
+    android.hardware.audio.service
 
 # Modules for Audio HAL
 PRODUCT_PACKAGES += \
@@ -674,21 +698,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
   logd.logpersistd=logcatd \
   logd.logpersistd.size=30
 endif
-
-# Citadel
-PRODUCT_PACKAGES += \
-    citadeld \
-    citadel_updater \
-    android.hardware.authsecret@1.0-service.citadel \
-    android.hardware.oemlock@1.0-service.citadel \
-    android.hardware.weaver@1.0-service.citadel \
-    android.hardware.keymaster@4.1-service.citadel \
-    android.hardware.identity@1.0-service.citadel \
-    wait_for_strongbox
-
-# Citadel debug stuff
-PRODUCT_PACKAGES_DEBUG += \
-    test_citadel
 
 # Storage: for factory reset protection feature
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -799,17 +808,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
 
-# Pixel atrace HAL
-PRODUCT_PACKAGES += \
-    android.hardware.atrace@1.0-service.pixel
-
 # dynamic partition
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
-
-# fastbootd
-PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl.pixel \
-    fastbootd
 
 # Use /product/etc/fstab.postinstall to mount system_other
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -828,12 +828,14 @@ PRODUCT_PACKAGES += $(QTI_TELEPHONY_UTILS)
 
 HIDL_WRAPPER := qti-telephony-hidl-wrapper
 HIDL_WRAPPER += qti_telephony_hidl_wrapper.xml
+HIDL_WRAPPER += qti-telephony-hidl-wrapper-prd
+HIDL_WRAPPER += qti_telephony_hidl_wrapper_prd.xml
 PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 
 # Increment the SVN for any official public releases
 ifeq ($(PRODUCT_DEVICE_SVN_OVERRIDE),)
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=30
+	ro.vendor.build.svn=35
 endif
 
 # Enable iwlan service logging for debug
@@ -934,10 +936,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.thermal_warmreset = true \
 
-# Resume on Reboot support
-PRODUCT_PACKAGES += \
-    android.hardware.rebootescrow-service.citadel
-
 # Vendor verbose logging default property
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -953,6 +951,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.disable_rescue=true
 endif
 
+# Set support one-handed mode
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.support_one_handed_mode=true
+
 # Enable Incremental on the device via kernel module
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
@@ -960,7 +962,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enforce generic ramdisk allow list
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+# Enable watchdog timeout loop breaker.
+PRODUCT_PROPERTY_OVERRIDES += \
+    framework_watchdog.fatal_window.second=600 \
+    framework_watchdog.fatal_count=3
+
+# Set system properties identifying the chipset
+PRODUCT_VENDOR_PROPERTIES += ro.soc.manufacturer=Qualcomm
+PRODUCT_VENDOR_PROPERTIES += ro.soc.model=SM7250
+
+# Include the redbull product FCM
+# (TODO: b/169535506) This includes the FCM for system_ext and product partition.
+# Vendor Freeze system-only builds use a different FCM.
+ifneq ($(PRODUCT_VENDOR_FREEZE_SYSTEM_BUILD),true)
+PRODUCT_PACKAGES += redbull_product_compatibility_matrix.xml
+endif
 
 #################################################################################
 # This is the End of device-common.mk file.
@@ -992,6 +1008,9 @@ endif
 # Project
 include hardware/google/pixel/common/pixel-common-device.mk
 
+# Citadel
+include hardware/google/pixel/citadel/citadel.mk
+
 # Factory OTA
 -include vendor/google/factoryota/client/factoryota.mk
 
@@ -1010,6 +1029,7 @@ include hardware/google/pixel/common/pixel-common-device.mk
 # Pixel Logger
 include hardware/google/pixel/PixelLogger/PixelLogger.mk
 
-# Citadel
-include hardware/google/pixel/citadel/citadel.mk
+ifneq ($(wildcard vendor/qcom/sm7250/proprietary/prebuilt_grease),)
+-include $(LOCAL_PATH)/redbull_allowlist.mk
+endif
 #################################################################################
