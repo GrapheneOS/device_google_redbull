@@ -950,9 +950,6 @@ endif
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.support_one_handed_mode=true
 
-# Enable Incremental on the device via kernel module
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
 
 # Enforce generic ramdisk allow list
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
