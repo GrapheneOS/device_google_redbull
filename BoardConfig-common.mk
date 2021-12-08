@@ -136,9 +136,6 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 0x06000000
 # Allow LZ4 compression
 BOARD_RAMDISK_USE_LZ4 := true
 
-# Append the digest prefix to the build fingerprint
-BOARD_USE_VBMETA_DIGTEST_IN_FINGERPRINT := true
-
 # Specify BOOT_KERNEL_MODULES
 #
 # modules for first stage in vendor_boot.img, remainder goes to vendor.img.
