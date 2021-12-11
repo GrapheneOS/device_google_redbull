@@ -509,10 +509,11 @@ PRODUCT_COPY_FILES += \
     device/google/redbull/modules.blocklist:$(TARGET_COPY_OUT_VENDOR)/lib/modules/modules.blocklist \
     device/google/redbull/init.insmod.charger.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.charger.cfg \
 
-# TARGET_BOOLOADER_BOARD_NAME sensitive common boilerplate
-
+# TARGET_BOOTLOADER_BOARD_NAME sensitive common boilerplate
+# We can't use a variable as the prefix to an include statement
+# because it makes it too difficult to convert to starlark
 TARGET_BOARD_NAME_DIR := device/google/$(TARGET_BOOTLOADER_BOARD_NAME)
--include $(TARGET_BOARD_NAME_DIR:%/=%)-sepolicy/$(TARGET_BOOTLOADER_BOARD_NAME)-sepolicy.mk
+-include device/google/$(TARGET_BOOTLOADER_BOARD_NAME)-sepolicy/$(TARGET_BOOTLOADER_BOARD_NAME)-sepolicy.mk
 
 TARGET_BOARD_INFO_FILE := $(TARGET_BOARD_NAME_DIR)/board-info.txt
 TARGET_BOARD_COMMON_PATH := $(TARGET_BOARD_NAME_DIR)/sm7250
@@ -521,7 +522,7 @@ TARGET_BOARD_COMMON_PATH := $(TARGET_BOARD_NAME_DIR)/sm7250
 ifneq (,$(filter $(TARGET_DEVICE),bramble redfin))
     TARGET_KERNEL_DIR := device/google/redbull-kernel
 else
-    TARGET_KERNEL_DIR := $(TARGET_BOARD_NAME_DIR:%/=%)-kernel
+    TARGET_KERNEL_DIR := $(TARGET_BOARD_NAME_DIR)-kernel
 endif
 
 # DTBO partition definitions
