@@ -19,4 +19,5 @@ LOCAL_PATH := $(call my-dir)
 ifeq ($(USES_DEVICE_GOOGLE_REDBULL),true)
   subdir_makefiles=$(call first-makefiles-under,$(LOCAL_PATH))
   $(foreach mk,$(subdir_makefiles),$(info including $(mk) ...)$(eval include $(mk)))
+  include device/google/redbull/AndroidBoardCommon.mk
 endif
