@@ -97,3 +97,5 @@ persist.bluetooth.bqr.min_interval_ms=500
 # System props to enable aac vbr feature
 persist.bluetooth.a2dp_aac.vbr_supported=true
 
+# Hearing Aid Audio Support Using Bluetooth LE
+bluetooth.profile.asha.central=true
