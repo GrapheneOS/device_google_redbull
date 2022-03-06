@@ -791,15 +791,6 @@ on property:persist.radio.multisim.config=dsds
 on property:persist.radio.multisim.config=
     stop vendor.qcrild2
 
-# For Japan radio builds, always enforce camera shutter sound
-# Since this property is read by the audio server in system service,
-# it should be written by the system init.
-on property:ro.boot.hardware.radio.subtype=1
-    setprop audio.camerasound.force true
-# BUG FIX: b/163674593
-on property:ro.boot.hardware.sku=G5NZ6
-    setprop audio.camerasound.force true
-
 on property:persist.sys.device_provisioned=1
     setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,7
     setprop dalvik.vm.dex2oat-threads 6
