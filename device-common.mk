@@ -985,6 +985,11 @@ endif
 PRODUCT_VENDOR_PROPERTIES += ro.soc.manufacturer=Qualcomm
 PRODUCT_VENDOR_PROPERTIES += ro.soc.model=SM7250
 
+# RCS packages (com.android.service.ims.presence and com.android.service.ims)
+PRODUCT_PACKAGES += \
+    PresencePolling \
+    RcsService
+
 #################################################################################
 # This is the End of device-common.mk file.
 # Now, Pickup other split device-common.mk files:
