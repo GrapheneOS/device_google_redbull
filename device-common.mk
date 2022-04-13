@@ -1035,6 +1035,9 @@ include hardware/google/pixel/citadel/citadel.mk
 # Pixel Logger
 include hardware/google/pixel/PixelLogger/PixelLogger.mk
 
+FULL_BUILD := $(wildcard vendor/google_devices/$(TARGET_DEVICE)/firmware/android-info.txt)
+ifeq "$($(FULL_BUILD))" ""
 include $(LOCAL_PATH)/redbull_allowlist.mk
+endif
 
 #################################################################################
