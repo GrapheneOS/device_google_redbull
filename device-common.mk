@@ -984,6 +984,10 @@ PRODUCT_PACKAGES += \
     PresencePolling \
     RcsService
 
+PRODUCT_PACKAGES += \
+    extracted-carrierconfig \
+    extracted-apns
+
 #################################################################################
 # This is the End of device-common.mk file.
 # Now, Pickup other split device-common.mk files:
