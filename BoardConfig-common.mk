@@ -52,6 +52,8 @@ BOARD_KERNEL_CMDLINE += i2c_qcom_geni.async_probe=1
 BOARD_KERNEL_CMDLINE += st21nfc.async_probe=1
 BOARD_KERNEL_CMDLINE += spmi_pmic_arb.async_probe=1
 BOARD_KERNEL_CMDLINE += ufs_qcom.async_probe=1
+BOARD_KERNEL_CMDLINE += spi-geni-qcom.async_probe=1
+BOARD_KERNEL_CMDLINE += cnss_utils.async_probe=1
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
