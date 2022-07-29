@@ -54,6 +54,7 @@ BOARD_KERNEL_CMDLINE += spmi_pmic_arb.async_probe=1
 BOARD_KERNEL_CMDLINE += ufs_qcom.async_probe=1
 BOARD_KERNEL_CMDLINE += spi-geni-qcom.async_probe=1
 BOARD_KERNEL_CMDLINE += cnss_utils.async_probe=1
+BOARD_KERNEL_CMDLINE += cgroup_disable=pressure
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
