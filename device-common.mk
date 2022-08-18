@@ -965,7 +965,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Enable Incremental on the device via kernel module
 PRODUCT_PROPERTY_OVERRIDES += \
-        ro.incremental.enable=yes
+        ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
 
 # Enforce generic ramdisk allow list
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
