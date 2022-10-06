@@ -845,7 +845,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 # Increment the SVN for any official public releases
 ifeq ($(PRODUCT_DEVICE_SVN_OVERRIDE),)
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=54
+	ro.vendor.build.svn=55
 endif
 
 # Enable iwlan service logging for debug
