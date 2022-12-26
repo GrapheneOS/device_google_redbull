@@ -52,7 +52,7 @@ const struct SysfsCollector::SysfsPaths sysfs_paths = {
 
 const struct UeventListener::UeventPaths ueventPaths = {
     .AudioUevent = "/kernel/q6audio/q6voice_uevent",
-    .WirelessChargerPtmcUevent = "POWER_SUPPLY_PTMC_ID="};
+};
 
 int main() {
     LOG(INFO) << "starting PixelStats";
