@@ -432,7 +432,7 @@ PRODUCT_SOONG_NAMESPACES += vendor/qcom/proprietary/bluetooth/hidl_client
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
 
-include vendor/widevine/libwvdrmengine/apex/device/device.mk
+-include vendor/widevine/libwvdrmengine/apex/device/device.mk
 
 # NFC and Secure Element packages
 PRODUCT_PACKAGES += \
