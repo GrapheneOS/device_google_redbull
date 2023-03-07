@@ -998,6 +998,9 @@ PRODUCT_PACKAGES += \
     extracted-carrierconfig \
     extracted-apns
 
+PRODUCT_PACKAGES += \
+    PixelNFCStub
+
 #################################################################################
 # This is the End of device-common.mk file.
 # Now, Pickup other split device-common.mk files:
