@@ -83,7 +83,8 @@ PRODUCT_COPY_FILES += \
     device/google/redbull/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml \
     device/google/redbull/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml \
-    frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
+    frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml \
+    frameworks/native/data/etc/android.software.ipsec_tunnel_migration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnel_migration.xml
 
 # Enforce privapp-permissions whitelist
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -102,7 +103,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_SHIPPING_API_LEVEL := 30
 BOARD_SHIPPING_API_LEVEL := 30
-BOARD_API_LEVEL := 33
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
