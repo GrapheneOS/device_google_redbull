@@ -1021,6 +1021,9 @@ endif
 # Project
 include hardware/google/pixel/common/pixel-common-device.mk
 
+# gs-common
+include device/google/gs-common/misc_writer/misc_writer.mk
+
 # Citadel
 include hardware/google/pixel/citadel/citadel.mk
 
