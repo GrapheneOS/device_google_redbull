@@ -38,8 +38,7 @@ PRODUCT_SOONG_NAMESPACES += \
     vendor/google/interfaces \
     vendor/google_devices/common/proprietary/confirmatioui_hal \
     vendor/google_nos/host/android \
-    vendor/google_nos/test/system-test-harness \
-    vendor/carriersettings-extractor
+    vendor/google_nos/test/system-test-harness
 
 # Include GPS soong namespace
 PRODUCT_SOONG_NAMESPACES += \
@@ -993,10 +992,6 @@ PRODUCT_VENDOR_PROPERTIES += ro.soc.model=SM7250
 PRODUCT_PACKAGES += \
     PresencePolling \
     RcsService
-
-PRODUCT_PACKAGES += \
-    extracted-carrierconfig \
-    extracted-apns
 
 #################################################################################
 # This is the End of device-common.mk file.
