@@ -1034,7 +1034,7 @@ include hardware/google/pixel/citadel/citadel.mk
 -include hardware/google/pixel/pixelstats/device.mk
 
 # thermal
--include hardware/google/pixel/thermal/device.mk
+include device/google/gs-common/thermal/thermal_hal/device.mk
 
 # power HAL
 -include hardware/google/pixel/power-libperfmgr/aidl/device.mk
