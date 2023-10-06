@@ -45,11 +45,3 @@ vintf_compatibility_matrix {
         "device_framework_matrix_product.xml",
     ],
 }
-
-prebuilt_etc_xml {
-    name: "atcmdfwd-saidl",
-    src: "atcmdfwd-saidl.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    system_ext_specific: true,
-}
