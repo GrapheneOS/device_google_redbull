@@ -993,6 +993,11 @@ PRODUCT_PACKAGES += \
     PresencePolling \
     RcsService
 
+# Copy over vintf XML for vendor.qti.hardware.radio.atcmdfwd
+# This is needed as the copyright header made by Qualcomm breaks vintf validation during builds
+# Thus, we just add it to the device tree, and adjust the formatting of the copyright header here
+PRODUCT_PACKAGES += atcmdfwd-saidl
+
 #################################################################################
 # This is the End of device-common.mk file.
 # Now, Pickup other split device-common.mk files:
