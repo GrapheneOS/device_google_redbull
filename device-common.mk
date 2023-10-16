@@ -435,7 +435,7 @@ PRODUCT_PACKAGES += \
 
 # NFC and Secure Element packages
 PRODUCT_PACKAGES += \
-    NfcNci \
+    com.android.nfcservices \
     Tag \
     SecureElement \
     android.hardware.nfc-service.st \
