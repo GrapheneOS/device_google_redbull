@@ -182,6 +182,12 @@
             <Limit name="measured-frame-rate-720x480" range="113-114" />
             <Limit name="measured-frame-rate-1280x720" range="54-54" />
         </MediaCodec>
+        <MediaCodec name="c2.android.av1-dav1d.decoder" type="video/av01" update="true">
+            <Limit name="measured-frame-rate-352x288" range="323-351" />
+            <Limit name="measured-frame-rate-640x360" range="180-185" />
+            <Limit name="measured-frame-rate-720x480" range="113-114" />
+            <Limit name="measured-frame-rate-1280x720" range="54-54" />
+         </MediaCodec>
     </Decoders>
 
     <Encoders>
