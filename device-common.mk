@@ -842,7 +842,7 @@ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
 # Increment the SVN for any official public releases
 ifeq ($(PRODUCT_DEVICE_SVN_OVERRIDE),)
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.vendor.build.svn=74
+	ro.vendor.build.svn=75
 endif
 
 # Enable iwlan service logging for debug
@@ -1017,6 +1017,9 @@ endif
 
 # Project
 include hardware/google/pixel/common/pixel-common-device.mk
+
+# gs-common
+include device/google/gs-common/misc_writer/misc_writer.mk
 
 # Citadel
 include hardware/google/pixel/citadel/citadel.mk
